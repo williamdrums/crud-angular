@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { Course } from '../model/course';
-import { MatTableModule } from '@angular/material/table'
+import { CoursesService } from '../service/courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -9,13 +11,14 @@ import { MatTableModule } from '@angular/material/table'
 })
 export class CoursesComponent implements OnInit {
 
-courses: Course[] = [
-  { _id: '1', name: 'Angular', category: 'front-end'}
-];
+courses: Observable<Course[]>;
 displayedColumns = ['name','category']
 
-  constructor(){
-    //this.courses = [];
+// coursesService: CoursesService;
+
+  constructor(private coursesService: CoursesService){
+    // this.coursesService = new CoursesService();
+    this.courses = this.coursesService.findAll();
   }
 
 
