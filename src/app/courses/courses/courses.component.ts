@@ -11,14 +11,14 @@ import { CoursesService } from '../service/courses.service';
 })
 export class CoursesComponent implements OnInit {
 
-courses: Observable<Course[]>;
+courses$: Observable<Course[]>;
 displayedColumns = ['name','category']
 
 // coursesService: CoursesService;
 
   constructor(private coursesService: CoursesService){
     // this.coursesService = new CoursesService();
-    this.courses = this.coursesService.findAll();
+    this.courses$ = this.coursesService.findAll();
   }
 
 
