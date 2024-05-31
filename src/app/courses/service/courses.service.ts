@@ -10,7 +10,7 @@ import { delay, first, tap } from 'rxjs';
 export class CoursesService {
 
 
-  private readonly API = '/assets/courses.json';
+  private readonly API = '/assets/acourses.json';
 
   // fazendo a injeção de dependencia
   constructor(private httpClient: HttpClient) { }
